@@ -37,9 +37,14 @@ def index() -> rx.Component:
     )
 
 def health():
-    return rx.code(200)
+    return rx.text("ok")
+
+def apiRoot():
+    return {"message": "hello from reflex"}
 
 # Add state and page to the app.
 app = rx.App()
 app.add_page(index)
+app.add_page(health)
+app.api.add_api_route("/", apiRoot)
 app.compile()
