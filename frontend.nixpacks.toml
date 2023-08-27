@@ -25,8 +25,12 @@ providers = ['python']
     dependsOn = ['caddy'] # make sure this phase runs after the 'caddy' phase so that we know we have caddy downloaded
     cmds = ['caddy fmt --overwrite Caddyfile'] # format the Caddyfile to fix any formatting inconsistencies
 
-[phases.export]
+[phases.init]
     dependsOn = ['install']
+    cmds = ['reflex init']
+
+[phases.export]
+    dependsOn = ['init']
     cmds = ['reflex export --frontend-only --no-zip'] # export a static copy of frontend to /app/.web/_static (and pre-install frontend packages)
 
 [start]
