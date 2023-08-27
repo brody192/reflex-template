@@ -1,13 +1,5 @@
 providers = ['python']
 
-# [phases.node]
-#     nixpkgsArchive = '9225c736fba86a1b33cb407aeb323c0fa7de206e' # https://github.com/NixOS/nixpkgs/commit/9225c736fba86a1b33cb407aeb323c0fa7de206e
-#     nixPkgs = ['nodejs']
-
-# [phases.bun]
-#     nixpkgsArchive = '2746e75e643570fbac6a86fa1ae0e9a03ececa11' # https://github.com/NixOS/nixpkgs/commit/2746e75e643570fbac6a86fa1ae0e9a03ececa11
-#     nixPkgs = ['bun']
-
 [phases.setup]
     nixPkgs = ['...', 'unzip']
 
