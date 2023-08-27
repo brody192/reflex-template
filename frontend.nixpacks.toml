@@ -9,7 +9,7 @@ providers = ['python']
 #     nixPkgs = ['bun']
 
 [phases.init]
-    dependsOn = ['setup']
+    dependsOn = ['install']
     cmds = ['reflex init']
 
 [start]
