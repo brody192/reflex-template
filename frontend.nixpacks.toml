@@ -16,4 +16,4 @@ providers = ['python']
     cmds = ['reflex init']
 
 [start]
-    cmd = 'reflex run --frontend-only --env $ENV'
+    cmd = 'reflex run --frontend-only --env $ENV --loglevel debug'
