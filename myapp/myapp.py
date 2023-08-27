@@ -37,7 +37,7 @@ def index() -> rx.Component:
     )
 
 def health():
-    return rx.code(200)
+    return rx.text("healthy")
 
 def apiRoot():
     return {"message": "hello from reflex"}
