@@ -1,0 +1,4 @@
+@echo off
+
+SET PROJECT_ID=9bec5bf6-d2fc-4486-ab87-b3e61fc1bd96
+SET SERVICE_ID=d2aa80e4-b429-4a4d-949e-39d73a47b7a3
