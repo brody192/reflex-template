@@ -23,7 +23,7 @@ providers = ['python']
 # format the Caddyfile with fmt
 [phases.fmt]
     dependsOn = ['caddy'] # make sure this phase runs after the 'caddy' phase so that we know we have caddy downloaded
-    cmds = ['caddy fmt --overwrite Caddyfile'] # format the Caddyfile to fix any formatting inconsistencies
+    cmds = ['caddy fmt --overwrite frontend.caddyfile'] # format the Caddyfile to fix any formatting inconsistencies
 
 [phases.init]
     dependsOn = ['install']
