@@ -1,7 +1,7 @@
+providers = []
+
 [variables]
     NEXT_TELEMETRY_DISABLED = '1'
-
-providers = []
 
 # [phases.node]
 #     nixPkgs = ['nodejs']
