@@ -41,7 +41,7 @@
         @404 expression `{err.status_code} == 404`
         handle @404 {
             # rewrite the 404 error to the 404 frontend page
-            rewrite * /{err.status_code}
+            rewrite * /404.html
             file_server
         }
     }
