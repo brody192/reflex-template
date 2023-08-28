@@ -1,7 +1,28 @@
+[variables]
+    NEXT_TELEMETRY_DISABLED = '1'
+
 providers = []
 
-[phases.node]
-    nixPkgs = ['nodejs']
+# [phases.node]
+#     nixPkgs = ['nodejs']
+
+# [phases.bun]
+#     nixPkgs = ['bun']
+
+[phases.setup]
+    nixPkgs = ['unzip']
+
+[phases.python]
+    dependsOn = ['setup']
+    nixPkgs = ['python311']
+
+[phases.init]
+    dependsOn = ['python']
+    cmds = ['reflex init']
+
+[phases.export]
+    dependsOn = ['init']
+    cmds = ['reflex export --frontend-only --no-zip']
 
 [start]
     cmd = 'echo hello'
