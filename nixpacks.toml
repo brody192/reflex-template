@@ -30,7 +30,7 @@ providers = ['python']
 
 [phases.fmt]
     dependsOn = ['caddy']
-    cmds = ['caddy fmt']
+    cmds = ['caddy fmt --overwrite']
 
 # start phases
 [start]
