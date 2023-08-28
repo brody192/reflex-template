@@ -15,9 +15,6 @@
         format console # set access log format to console mode
     }
 
-    # health check for railway
-    respond /health 200
-
     # serve from the '.web/_static' folder (reflex exports into the '.web/_static' folder)
     root * .web/_static
 
@@ -27,8 +24,7 @@
     # serve files from 'dist'
     file_server
 
-    # if path doesn't exist, redirect it to 'index.html' for client side routing
-    # try_files {path} {path}.html
+    try_files {path} {path}.html
 
     # the handle_path directive will strip /api/ from the path before proxying
     handle_path /backend/* { # this strips the /backend/ prefix from the uri sent to the proxy address
