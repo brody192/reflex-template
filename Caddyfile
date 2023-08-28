@@ -35,14 +35,9 @@
         reverse_proxy 127.0.0.1:8000 # proxy all requests for /backend/* to the backend
     }
 
-    # handle the 404 error
+    # handle errors
     handle_errors {
-        # register the 404 error handler
-        @404 expression `{err.status_code} == 404`
-        handle @404 {
-            # rewrite the 404 error to the 404 frontend page
-            rewrite * /404.html
-            file_server
-        }
+        rewrite * /{err.status_code}.html
+        file_server
     }
 }
