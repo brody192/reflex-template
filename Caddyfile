@@ -38,7 +38,7 @@
     # handle the 404 error
     handle_errors {
         # register the 404 error handler
-        handle `expression {err.status_code} == 404` {
+        handle expression `{err.status_code} == 404` {
             # rewrite the 404 error to the 404 frontend page
             rewrite * /{err.status_code}
             file_server
