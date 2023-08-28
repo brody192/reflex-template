@@ -64,3 +64,19 @@ The app state is just a class. State updates are methods in the class. And the U
     Integrate with existing databases with a single line of code. Or use our built in SQLite database
 
     [Database docs](https://reflex.dev/docs/database/overview/)
+
+## What makes this work on Railway?
+
+- **Custom build plan:** [nixpacks.toml](https://github.com/brody192/reflex-template/blob/main/nixpacks.toml)
+
+    - Runs all the necessary commands to setup, initialize, export, and install Caddy
+    - Starts the Reflex backend and Caddy server using [parallel](https://www.gnu.org/software/parallel/) to avoid having to run two separate services in the project
+
+- **The [Caddy](https://caddyserver.com/) Server/Proxy:** [Caddyfile](https://github.com/brody192/reflex-template/blob/main/Caddyfile)
+
+    - Serves the exported frontend Reflex app
+    - Proxies all requests to `/backend/*` through to the Reflex backend server
+
+- **The `api_url` variable:** [rxconfig.py](https://github.com/brody192/reflex-template/blob/main/rxconfig.py)
+
+    - Makes sure the frontend build utilizes the correct backend api url
