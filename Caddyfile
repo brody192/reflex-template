@@ -26,7 +26,7 @@
 	# enable gzipping responses
 	encode gzip
 
-	# serve files from 'dist'
+	# serve files from '.web/_static'
 	file_server
 
 	try_files {path} {path}.html
