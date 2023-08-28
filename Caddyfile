@@ -28,7 +28,7 @@
     file_server
 
     # if path doesn't exist, redirect it to 'index.html' for client side routing
-    try_files {path} {path}.html
+    # try_files {path} {path}.html
 
     # the handle_path directive will strip /api/ from the path before proxying
     handle_path /backend/* { # this strips the /backend/ prefix from the uri sent to the proxy address
@@ -37,7 +37,7 @@
 
     # handle errors
     handle_errors {
-        rewrite * /{err.status_code}
+        rewrite * /{err.status_code}.html
         file_server
     }
 }
