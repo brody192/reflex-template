@@ -16,8 +16,12 @@ providers = []
     dependsOn = ['setup']
     nixPkgs = ['python311']
 
-[phases.init]
+[phases.install]
     dependsOn = ['python']
+    cmds = ['pip install -r requirements.txt']
+
+[phases.init]
+    dependsOn = ['install']
     cmds = ['reflex init']
 
 [phases.export]
