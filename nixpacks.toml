@@ -1,2 +1,4 @@
+providers = []
+
 [start]
     cmd = 'echo hello'
