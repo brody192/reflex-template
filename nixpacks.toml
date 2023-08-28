@@ -1,4 +1,4 @@
-providers = []
+providers = ['python']
 
 [variables]
     NEXT_TELEMETRY_DISABLED = '1'
@@ -12,13 +12,13 @@ providers = []
 [phases.setup]
     nixPkgs = ['unzip']
 
-[phases.python]
-    dependsOn = ['setup']
-    nixPkgs = ['python311', 'python311Packages.pip']
+# [phases.python]
+#     dependsOn = ['setup']
+#     nixPkgs = ['python311', 'python311Packages.pip']
 
-[phases.install]
-    dependsOn = ['python']
-    cmds = ['pip install -r requirements.txt']
+# [phases.install]
+#     dependsOn = ['python']
+#     cmds = ['pip install -r requirements.txt']
 
 [phases.init]
     dependsOn = ['install']
