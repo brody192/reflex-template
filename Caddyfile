@@ -34,4 +34,11 @@
     handle_path /backend/* { # this strips the /backend/ prefix from the uri sent to the proxy address
         reverse_proxy 127.0.0.1:8000 # proxy all requests for /backend/* to the backend
     }
+
+    handle_errors {
+        handle @404 {
+            rewrite * /{err.status_code}
+            file_server
+        }
+    }
 }
