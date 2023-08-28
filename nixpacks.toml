@@ -10,7 +10,7 @@ providers = ['python']
 #     nixPkgs = ['bun']
 
 [phases.setup]
-    nixPkgs = ['unzip']
+    nixPkgs = ['...', 'unzip']
 
 # [phases.python]
 #     dependsOn = ['setup']
