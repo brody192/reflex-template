@@ -1,5 +1,7 @@
+# default to the python provider
 providers = ['python']
 
+# set up some variables to minimize annoyance
 [variables]
     NEXT_TELEMETRY_DISABLED = '1' # disable next telemetry
     NPM_CONFIG_UPDATE_NOTIFIER = 'false' # the update check is relatively useless in a production environment
@@ -28,4 +30,4 @@ providers = ['python']
 
 # start phases
 [start]
-    cmd = 'parallel --ungroup --halt now,fail=1 ::: "reflex run --backend-only --env $ENV" "caddy run"' # run the backend and frontend in parallel, this will fail fast if either service crashes allowing railway to restart the deployment
+    cmd = 'parallel --ungroup --halt now,fail=1 ::: "reflex run --backend-only --env $ENV" "caddy run 2>&1"' # run the backend and frontend in parallel, this will fail fast if either service crashes allowing railway to restart the deployment
