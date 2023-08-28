@@ -7,7 +7,6 @@
 <p align="center">Web apps in pure Python, Built in a few minutes!</p>
 <p align="center">Build anything, faster</p>
 
-
 Create your whole app in a single language. Don't worry about writing APIs to connect your frontend and backend
 
 ## Any use case
