@@ -10,6 +10,5 @@ config = ReflextemplateConfig(
     frontend_port=os.getenv("PORT", 3000),
     backend_port=os.getenv("PORT", 8000),
     backend_host="0.0.0.0",
-    api_url=os.getenv("API_URL", "http://127.0.0.1:8000"),
-    telemetry_enabled=False
+    api_url=os.getenv("API_URL", "http://127.0.0.1:8000")
 )
