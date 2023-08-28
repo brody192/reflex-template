@@ -28,5 +28,10 @@ providers = ['python']
     dependsOn = ['init']
     cmds = ['reflex export --frontend-only --no-zip']
 
+[phases.caddy]
+    dependsOn = ['export']
+    nixpkgsArchive = 'bccff6f3ef29ef91701340cfabf6e6012802cbac'
+    nixPkgs = ['caddy']
+
 [start]
-    cmd = 'echo hello'
+    cmd = 'caddy run 2>&1'
