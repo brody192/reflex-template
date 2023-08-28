@@ -1,4 +1,7 @@
 providers = []
 
+[phases.node]
+    nixPkgs = ['nodejs']
+
 [start]
     cmd = 'echo hello'
