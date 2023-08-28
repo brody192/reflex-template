@@ -1,4 +1,0 @@
-providers = ['python']
-
-[start]
-    cmd = 'reflex run --backend-only --env $ENV --loglevel info'
