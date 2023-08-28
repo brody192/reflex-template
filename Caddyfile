@@ -1,0 +1,47 @@
+{
+	# global options
+	admin off # theres no need for the admin api in railway's environment
+	persist_config off # storage isn't persistent anyway
+	auto_https off # railway handles https for us, this would cause issues if left enabled
+	log {
+		# runtime logs
+		format console # set runtime log format to console mode 
+	}
+	servers {
+		# server options
+		trusted_proxies static private_ranges # trust railway's proxy
+	}
+}
+
+:{$PORT} {
+	# site block, listens on the $PORT environment variable, automatically assigned by railway
+	log {
+		# access logs
+		format console # set access log format to console mode
+	}
+
+	# serve from the '.web/_static' folder (reflex exports into the '.web/_static' folder)
+	root * .web/_static
+
+	# enable gzipping responses
+	encode gzip
+
+	# serve files from '.web/_static'
+	file_server
+
+	try_files {path} {path}.html
+
+	# the handle_path directive will strip /backend/ from the path before proxying
+	handle_path /backend/* {
+		# this strips the /backend/ prefix from the uri sent to the proxy address
+		reverse_proxy 127.0.0.1:8000 # proxy all requests for /backend/* to the backend
+	}
+
+	# redirect not found pages to the reflex 404 page
+	handle_errors {
+		@404 expression `{err.status_code} == 404`
+		handle @404 {
+			redir * /404
+		}
+	}
+}

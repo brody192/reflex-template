@@ -1,0 +1,9 @@
+*.db
+
+*.py[cod]
+
+.web
+
+caddy*
+
+__pycache__/
