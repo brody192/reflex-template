@@ -14,7 +14,7 @@ providers = ['python']
 
 # reflex init phase
 [phases.init]
-    dependsOn = ['install'] # run after install
+    dependsOn = ['install'] # run after install (install is the default phase for installing the python modules)
     cmds = ['reflex init'] # re-initialize the app with the latest template
 
 # export frontend phase
@@ -25,13 +25,14 @@ providers = ['python']
 # install caddy phase
 [phases.caddy]
     dependsOn = ['export'] # run after export
-    nixpkgsArchive = 'bccff6f3ef29ef91701340cfabf6e6012802cbac' # https://github.com/NixOS/nixpkgs/commit/bccff6f3ef29ef91701340cfabf6e6012802cbac
+    nixpkgsArchive = 'bccff6f3ef29ef91701340cfabf6e6012802cbac' # https://github.com/NixOS/nixpkgs/commit/bccff6f3ef29ef91701340cfabf6e6012802cbac (Caddy v2.7.4)
     nixPkgs = ['caddy'] # install caddy
 
+# format the caddyfile
 [phases.fmt]
-    dependsOn = ['caddy']
-    cmds = ['caddy fmt --overwrite']
+    dependsOn = ['caddy'] # run after caddy
+    cmds = ['caddy fmt --overwrite'] # format the caddyfile and overwrite changes
 
-# start phases
+# start phase
 [start]
     cmd = 'parallel --ungroup --halt now,fail=1 ::: "reflex run --backend-only --env $ENV" "caddy run 2>&1"' # run the backend and frontend in parallel, this will fail fast if either service crashes allowing railway to restart the deployment

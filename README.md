@@ -80,3 +80,10 @@ The app state is just a class. State updates are methods in the class. And the U
 - **The `api_url` variable:** [rxconfig.py](https://github.com/brody192/reflex-template/blob/main/rxconfig.py)
 
     - Makes sure the frontend build utilizes the correct backend api url
+
+**Relevant Caddy documentation:**
+
+- [The Caddyfile](https://caddyserver.com/docs/caddyfile)
+- [Caddyfile Directives](https://caddyserver.com/docs/caddyfile/directives)
+- [reverse_proxy](https://caddyserver.com/docs/caddyfile/directives/reverse_proxy)
+- [handle_errors](https://caddyserver.com/docs/caddyfile/directives/handle_errors)
