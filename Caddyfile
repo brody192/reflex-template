@@ -5,7 +5,7 @@
 	auto_https off # railway handles https for us, this would cause issues if left enabled
 	log {
 		# runtime logs
-		format console # set runtime log format to console mode 
+		format json # set runtime log format to json mode 
 	}
 	servers {
 		# server options
@@ -17,7 +17,7 @@
 	# site block, listens on the $PORT environment variable, automatically assigned by railway
 	log {
 		# access logs
-		format console # set access log format to console mode
+		format json # set access log format to json mode
 	}
 
 	# serve from the '.web/_static' folder (reflex exports into the '.web/_static' folder)
